@@ -51,7 +51,7 @@ export const signUp =
 
       if (errors) {
         errors.forEach((error) => {
-          dispatch(setAlert(error.msg, 'error'));
+          dispatch(setAlert('Register Failed', error.msg, 'error'));
         });
       }
       dispatch({ type: SIGNUP_FAIL });
@@ -76,7 +76,7 @@ export const signIn = (email, password) => async (dispatch) => {
 
     if (errors) {
       errors.forEach((error) => {
-        dispatch(setAlert(error.msg, 'error'));
+        dispatch(setAlert('Login Failed', error.msg, 'error'));
       });
     }
     dispatch({ type: SIGNIN_FAIL });

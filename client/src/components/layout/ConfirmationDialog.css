@@ -1,0 +1,72 @@
+/* Dialog container */
+.confirmation-dialog {
+  .MuiDialog-paper {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* Dialog title styling */
+.MuiDialogTitle-root {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+/* Dialog content styling */
+.confirmation-dialog-content {
+  .MuiDialogContent-root {
+    font-size: 16px;
+    color: #666666;
+    padding: 0;
+  }
+  .MuiDialogContentText-root {
+    margin-bottom: 20px;
+  }
+}
+
+/* Dialog actions styling */
+.confirmation-dialog-content .actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.MuiButton-root {
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.MuiButton-containedPrimary:hover {
+  background-color: #2980b9;
+}
+
+.MuiButton-textPrimary {
+  color: #3498db;
+}
+
+.MuiButton-textPrimary:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.MuiButton-textSecondary {
+  color: #e74c3c;
+}
+
+.MuiButton-textSecondary:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+}

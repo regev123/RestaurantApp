@@ -2,25 +2,19 @@ import api from '../utils/api';
 import { setAlert } from './alert';
 import {
   MENU_ITEMS_LOADED,
-  FAILED_TO_LOAD_MENU_ITEMS,
   START_LOADING,
   DELETE_MENU_ITEM,
-  FAILED_TO_DELETE_MENU_ITEM,
   MENU_ITEM_CATEGORIES_LOADED,
-  FAILED_TO_LOAD_MENU_ITEM_CATEGORIES,
   ADDED_MENU_ITEM,
-  FAILED_TO_ADD_MENU_ITEM,
-  ADD_WANTED_EDIT_MENU_ITEM_IN_STATE,
   EDIT_MENU_ITEM,
-  FAILED_TO_EDIT_MENU_ITEM,
   ADDED_MENU_ITEM_CATEGORY,
-  FAILED_TO_ADD_MENU_ITEM_CATEGORY,
   DELETE_MENU_ITEM_CATEGORY,
-  FAILED_TO_DELETE_MENU_ITEM_CATEGORY,
   CHANGE_MENU_ITEM_CATEGORIES_ORDER,
-  FAILED_TO_CHANGE_MENU_ITEM_CATEGORIES_ORDER,
+  CLOSE_OR_OPEN_MENU_ITEM,
+  START_LOADING_MENU_ITEMS,
+  FINISH_LOADING_MENU_ITEMS,
+  START_LOADING_CATEGORIES,
 } from './types';
-// import setAuthToken from '../utils/setAuthToken';
 
 // Load Menu Items
 export const loadMenuItems = () => async (dispatch) => {
@@ -39,9 +33,6 @@ export const loadMenuItems = () => async (dispatch) => {
         dispatch(setAlert(error.msg, 'error'));
       });
     }
-    dispatch({
-      type: FAILED_TO_LOAD_MENU_ITEMS,
-    });
   }
 };
 
@@ -62,9 +53,6 @@ export const loadMenuItemCategories = () => async (dispatch) => {
         dispatch(setAlert(error.msg, 'error'));
       });
     }
-    dispatch({
-      type: FAILED_TO_LOAD_MENU_ITEM_CATEGORIES,
-    });
   }
 };
 
@@ -73,7 +61,7 @@ export const deleteMenuItem =
   ({ id }) =>
   async (dispatch) => {
     try {
-      dispatch({ type: START_LOADING });
+      dispatch({ type: START_LOADING_MENU_ITEMS });
       const res = await api.delete(`/menu/deleteMenuItem/${id}`);
 
       dispatch({
@@ -88,9 +76,6 @@ export const deleteMenuItem =
           dispatch(setAlert(error.msg, 'error'));
         });
       }
-      dispatch({
-        type: FAILED_TO_DELETE_MENU_ITEM,
-      });
     }
   };
 
@@ -99,47 +84,42 @@ export const addMenuItem =
   (name, price, ingredients, category, imageUrl) => async (dispatch) => {
     const body = { name, price, ingredients, category, imageUrl };
     try {
-      dispatch({ type: START_LOADING });
+      dispatch({ type: START_LOADING_MENU_ITEMS });
+
       const res = await api.post('/menu/addMenuItem', body);
 
       dispatch({
         type: ADDED_MENU_ITEM,
         payload: res.data,
       });
+
+      return true;
     } catch (err) {
       const errors = err.response.data.errors;
 
       if (errors) {
+        dispatch({
+          type: FINISH_LOADING_MENU_ITEMS,
+        });
         errors.forEach((error) => {
-          dispatch(setAlert(error.msg, 'error'));
+          dispatch(setAlert('Add menu item failed!', error.msg, 'error'));
         });
       }
-      dispatch({
-        type: FAILED_TO_ADD_MENU_ITEM,
-      });
+      return false;
     }
-  };
-
-// Add Wanted Edit Menu Item To State
-export const addWantedEditMenuItemToState =
-  (name, price, ingredients, category, imageUrl) => async (dispatch) => {
-    dispatch({
-      type: ADD_WANTED_EDIT_MENU_ITEM_IN_STATE,
-      payload: {
-        name,
-        price,
-        ingredients,
-        category,
-        imageUrl,
-      },
-    });
   };
 
 export const editMenuItem =
   (name, price, ingredients, category, imageUrl) => async (dispatch) => {
     const body = { name, price, ingredients, category, imageUrl };
+    if (price === '') {
+      dispatch(
+        setAlert('Add menu item failed!', 'Price is required!', 'error')
+      );
+      return;
+    }
     try {
-      dispatch({ type: START_LOADING });
+      dispatch({ type: START_LOADING_MENU_ITEMS });
       const res = await api.put('/menu/updateMenuItem', body);
 
       dispatch({
@@ -154,14 +134,12 @@ export const editMenuItem =
           dispatch(setAlert(error.msg, 'error'));
         });
       }
-      dispatch({
-        type: FAILED_TO_EDIT_MENU_ITEM,
-      });
     }
   };
 
 export const addMenuItemCategory = (name, order) => async (dispatch) => {
   const body = { name, order };
+  dispatch({ type: START_LOADING_CATEGORIES });
 
   try {
     const res = await api.post('/menu/addMenuItemCategory', body);
@@ -178,9 +156,6 @@ export const addMenuItemCategory = (name, order) => async (dispatch) => {
         dispatch(setAlert(error.msg, 'error'));
       });
     }
-    dispatch({
-      type: FAILED_TO_ADD_MENU_ITEM_CATEGORY,
-    });
   }
 };
 
@@ -188,11 +163,17 @@ export const deleteMenuItemCategory =
   ({ id }) =>
   async (dispatch) => {
     try {
-      const res = await api.delete(`/menu/deleteMenuItemCategory/${id}`);
+      dispatch({ type: START_LOADING_CATEGORIES });
+      const menuItems = await api.delete(
+        `/menu/deleteAllMenuItemsOfCategory/${id}`
+      );
+      const categories = await api.delete(`/menu/deleteMenuItemCategory/${id}`);
 
+      const menuItemsData = menuItems.data;
+      const categoriesData = categories.data;
       dispatch({
         type: DELETE_MENU_ITEM_CATEGORY,
-        payload: res.data,
+        payload: { menuItemsData, categoriesData },
       });
     } catch (err) {
       const errors = err.response.data.errors;
@@ -202,9 +183,6 @@ export const deleteMenuItemCategory =
           dispatch(setAlert(error.msg, 'error'));
         });
       }
-      dispatch({
-        type: FAILED_TO_DELETE_MENU_ITEM_CATEGORY,
-      });
     }
   };
 
@@ -229,8 +207,28 @@ export const changeOrderMenuItemCategories =
           dispatch(setAlert(error.msg, 'error'));
         });
       }
-      dispatch({
-        type: FAILED_TO_CHANGE_MENU_ITEM_CATEGORIES_ORDER,
-      });
     }
   };
+
+// Add Wanted Edit Menu Item To State
+export const closeOrOpenMenuItem = (name) => async (dispatch) => {
+  try {
+    dispatch({ type: START_LOADING_MENU_ITEMS });
+    const body = { name };
+
+    const res = await api.put('/menu/closeOrOpenMenuItem', body);
+
+    dispatch({
+      type: CLOSE_OR_OPEN_MENU_ITEM,
+      payload: res.data,
+    });
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => {
+        dispatch(setAlert(error.msg, 'error'));
+      });
+    }
+  }
+};

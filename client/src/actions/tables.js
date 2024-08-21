@@ -2,11 +2,8 @@ import api from '../utils/api';
 import { setAlert } from './alert';
 import {
   TABLES_LOADED,
-  FAILED_TO_LOAD_TABLES,
   TABLE_DELETED,
-  FAILED_TO_DELETE_TABLE,
   TABLE_ADDED,
-  FAILED_TO_ADD_TABLE,
   START_LOADING,
 } from './types';
 // import setAuthToken from '../utils/setAuthToken';
@@ -14,6 +11,7 @@ import {
 // Load Tables
 export const loadTables = () => async (dispatch) => {
   try {
+    dispatch({ type: START_LOADING });
     const res = await api.get('/tables/getTables');
 
     dispatch({
@@ -28,9 +26,6 @@ export const loadTables = () => async (dispatch) => {
         dispatch(setAlert(error.msg, 'error'));
       });
     }
-    dispatch({
-      type: FAILED_TO_LOAD_TABLES,
-    });
   }
 };
 
@@ -55,10 +50,6 @@ export const deleteTable =
           dispatch(setAlert(error.msg, 'error'));
         });
       }
-
-      dispatch({
-        type: FAILED_TO_DELETE_TABLE,
-      });
     }
   };
 
@@ -82,9 +73,5 @@ export const addTable = (seats) => async (dispatch) => {
         dispatch(setAlert(error.msg, 'error'));
       });
     }
-
-    dispatch({
-      type: FAILED_TO_ADD_TABLE,
-    });
   }
 };

@@ -11,6 +11,17 @@ const TableSchema = new mongoose.Schema({
   },
 });
 
+// Post hook to update orders after deletion
+TableSchema.post('findOneAndDelete', async function (doc) {
+  if (!doc) return; // If no document was deleted, do nothing
+
+  await this.model.updateMany(
+    { number: { $gt: doc.number } },
+    { $inc: { number: -1 } }
+  );
+});
+
+//Pre hook to generate table number
 TableSchema.pre('save', async function (next) {
   //to check if the table is empty
   const count = await mongoose.connection.db

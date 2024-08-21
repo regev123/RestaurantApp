@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.notification {
+  margin-top: 15px;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  max-width: 470px;
+  transform: translateX(-50%);
+}
+
+.notification {
+  padding: 1em;
+  border-radius: 10px;
+  color: #898c97;
+}
+
+.error {
+  background: linear-gradient(90deg, #990f0f 0%, #232631 40%);
+}
+
+.notification,
+.notification > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}

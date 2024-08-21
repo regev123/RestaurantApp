@@ -1,0 +1,95 @@
+.table-reservations-page-container {
+  width: 27vw;
+}
+
+.table-reservations-page-container h2 {
+  color: black;
+  font-style: italic;
+  margin-bottom: 55px;
+  margin-left: 20px;
+}
+
+.table-reservations-page-reservations-list {
+  margin-bottom: 20px;
+  overflow-y: auto; /* Changed to vertical scroll for better readability */
+  height: 630px;
+}
+
+/* Custom scrollbar styling */
+.table-reservations-page-reservations-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.table-reservations-page-reservations-list::-webkit-scrollbar-thumb {
+  background: #8fb398;
+  border-radius: 5px;
+}
+
+.table-reservations-page-reservations-list::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+.table-reservations-page-reservations-list {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 10px rgba(149, 191, 165, 0.3);
+}
+
+.table-reservations-page-reservation-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 20px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item {
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-name h5 {
+  color: black;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-name h5 button {
+  background: transparent;
+  border: none;
+  margin-left: 4px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-name
+  h5
+  button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background: transparent;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-name h5 button i {
+  font-size: 14px;
+  color: red;
+  display: flex;
+  justify-content: center;
+}
+
+.table-reservations-page-reservation-item-content-date {
+  border-bottom: 1px dashed #222;
+  margin-bottom: 5px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-removed-ingridients
+  h5 {
+  color: red;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-name-close {
+  text-decoration: line-through;
+  color: black;
+  background: transparent;
+}

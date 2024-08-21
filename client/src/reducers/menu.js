@@ -1,37 +1,41 @@
 import {
   MENU_ITEMS_LOADED,
-  FAILED_TO_LOAD_MENU_ITEMS,
   START_LOADING,
   DELETE_MENU_ITEM,
-  FAILED_TO_DELETE_MENU_ITEM,
   MENU_ITEM_CATEGORIES_LOADED,
-  FAILED_TO_LOAD_MENU_ITEM_CATEGORIES,
   ADDED_MENU_ITEM,
-  FAILED_TO_ADD_MENU_ITEM,
-  ADD_WANTED_EDIT_MENU_ITEM_IN_STATE,
   EDIT_MENU_ITEM,
-  FAILED_TO_EDIT_MENU_ITEM,
   ADDED_MENU_ITEM_CATEGORY,
-  FAILED_TO_ADD_MENU_ITEM_CATEGORY,
   DELETE_MENU_ITEM_CATEGORY,
-  FAILED_TO_DELETE_MENU_ITEM_CATEGORY,
   CHANGE_MENU_ITEM_CATEGORIES_ORDER,
-  FAILED_TO_CHANGE_MENU_ITEM_CATEGORIES_ORDER,
+  CLOSE_OR_OPEN_MENU_ITEM,
+  START_LOADING_MENU_ITEMS,
+  START_LOADING_CATEGORIES,
+  FINISH_LOADING_MENU_ITEMS,
 } from '../actions/types';
 
 const initialState = {
   loading: false,
-  menuItems: null,
-  menuItemCategories: null,
+  menuItems: [],
+  menuItemCategories: [],
   loadingCategories: true,
   loadingMenuItems: true,
-  wantedEditMenuItem: null,
 };
 
 function tableReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
+    case START_LOADING_MENU_ITEMS:
+      return {
+        ...state,
+        loadingMenuItems: true,
+      };
+    case START_LOADING_CATEGORIES:
+      return {
+        ...state,
+        loadingCategories: true,
+      };
     case START_LOADING:
       return {
         ...state,
@@ -45,40 +49,40 @@ function tableReducer(state = initialState, action) {
       };
     case MENU_ITEM_CATEGORIES_LOADED:
     case ADDED_MENU_ITEM_CATEGORY:
-    case DELETE_MENU_ITEM_CATEGORY:
     case CHANGE_MENU_ITEM_CATEGORIES_ORDER:
       return {
         ...state,
+        loading: false,
         loadingCategories: false,
         menuItemCategories: payload,
       };
-    case ADD_WANTED_EDIT_MENU_ITEM_IN_STATE:
+    case DELETE_MENU_ITEM_CATEGORY:
       return {
         ...state,
-        wantedEditMenuItem: payload,
+        loadingCategories: false,
+        menuItemCategories: payload.categoriesData,
+        menuItems: payload.menuItemsData,
       };
     case DELETE_MENU_ITEM:
     case ADDED_MENU_ITEM:
     case EDIT_MENU_ITEM:
+    case CLOSE_OR_OPEN_MENU_ITEM:
       return {
         ...state,
-        loading: false,
+        loadingMenuItems: false,
         menuItems: payload,
+        wantedEditMenuItem: null,
       };
-    case FAILED_TO_ADD_MENU_ITEM:
-    case FAILED_TO_LOAD_MENU_ITEMS:
-    case FAILED_TO_DELETE_MENU_ITEM:
-    case FAILED_TO_LOAD_MENU_ITEM_CATEGORIES:
-    case FAILED_TO_EDIT_MENU_ITEM:
-    case FAILED_TO_ADD_MENU_ITEM_CATEGORY:
-    case FAILED_TO_DELETE_MENU_ITEM_CATEGORY:
-    case FAILED_TO_CHANGE_MENU_ITEM_CATEGORIES_ORDER:
+    case FINISH_LOADING_MENU_ITEMS:
       return {
         ...state,
-        loading: false,
+        loadingMenuItems: false,
       };
     default:
-      return state;
+      return {
+        ...state,
+        loading: false,
+      };
   }
 }
 

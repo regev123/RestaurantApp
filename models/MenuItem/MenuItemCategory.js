@@ -13,6 +13,16 @@ const MenuItemCategorySchema = new mongoose.Schema({
   },
 });
 
+// Post hook to update orders after deletion
+MenuItemCategorySchema.post('findOneAndDelete', async function (doc) {
+  if (!doc) return; // If no document was deleted, do nothing
+
+  await this.model.updateMany(
+    { order: { $gt: doc.order } },
+    { $inc: { order: -1 } }
+  );
+});
+
 module.exports = MenuItemCategory = mongoose.model(
   'menu_item_categories',
   MenuItemCategorySchema

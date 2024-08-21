@@ -148,7 +148,7 @@ router.post(
 
     try {
       //if all the validations on DB passed create the new object and save it
-      menuItem = new MenuItem({
+      const menuItem = new MenuItem({
         name,
         price,
         ingredients,
@@ -164,6 +164,27 @@ router.post(
         return res
           .status(400)
           .send({ errors: [{ msg: 'price must be greater then zero!' }] });
+      res.status(500).send({ errors: [{ msg: 'Internal server error' }] });
+    }
+  }
+);
+
+// @route    UPDATE api/menu/closeOrOpenMenuItem
+// @desc     UPDATE close boolean variable of menu Item
+// @access   Private Admin
+router.put(
+  '/closeOrOpenMenuItem',
+  auth,
+  restrictTo('admin'),
+  async (req, res) => {
+    const { name } = req.body;
+
+    try {
+      const menuItem = await MenuItem.findOne({ name });
+      menuItem.close = !menuItem.close;
+      await menuItem.save();
+      res.json(await getAllMenuItems());
+    } catch (err) {
       res.status(500).send({ errors: [{ msg: 'Internal server error' }] });
     }
   }
@@ -207,11 +228,35 @@ router.delete(
   }
 );
 
+// @route    DELETE api/menu/deleteAllMenuItemOfCategory/:id
+// @desc     Delete all menu items of category
+// @access   Private Admin
+router.delete(
+  '/deleteAllMenuItemsOfCategory/:id',
+  auth,
+  restrictTo('admin'),
+  async (req, res) => {
+    try {
+      await MenuItem.deleteMany({
+        category: req.params.id,
+      });
+      res.json(await getAllMenuItems());
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send({ errors: [{ msg: 'Internal server error' }] });
+    }
+  }
+);
+
 // @route    UPDATE api/menu/updateMenuItem/
 // @desc     UPDATE an existing menu item
 // @access   Private Admin
 router.put('/updateMenuItem/', auth, restrictTo('admin'), async (req, res) => {
   try {
+    if (req.body.imageUrl === '')
+      req.body.imageUrl =
+        'https://www.shutterstock.com/image-illustration/not-available-red-rubber-stamp-260nw-586791809.jpg';
+
     const { name, price, ingredients, category, imageUrl } = req.body;
     //make filter of menu item by is name that you want to update
     const filter = { name };

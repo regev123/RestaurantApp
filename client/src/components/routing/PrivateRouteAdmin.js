@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
-import Navbar from '../layout/Navbar';
+import Navbar from '../layout/Sidebar';
 
 const PrivateRoute = ({
   component: Component,

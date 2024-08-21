@@ -1,7 +1,4 @@
 import {
-  FAILED_TO_ADD_TABLE,
-  FAILED_TO_DELETE_TABLE,
-  FAILED_TO_LOAD_TABLES,
   TABLES_LOADED,
   TABLE_ADDED,
   TABLE_DELETED,
@@ -10,7 +7,7 @@ import {
 
 const initialState = {
   loading: true,
-  tables: null,
+  tables: [],
 };
 
 function tableReducer(state = initialState, action) {
@@ -30,15 +27,11 @@ function tableReducer(state = initialState, action) {
         loading: false,
         tables: payload,
       };
-    case FAILED_TO_LOAD_TABLES:
-    case FAILED_TO_DELETE_TABLE:
-    case FAILED_TO_ADD_TABLE:
+    default:
       return {
         ...state,
         loading: false,
       };
-    default:
-      return state;
   }
 }
 

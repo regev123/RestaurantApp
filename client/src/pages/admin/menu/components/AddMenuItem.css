@@ -1,0 +1,159 @@
+.add-memu-item-container-title h2 {
+  color: black;
+  font-style: italic;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.add-memu-item-container-form {
+  width: 470px;
+  padding: 20px;
+}
+
+.add-memu-item-container-form-group {
+  margin-bottom: 5px;
+}
+
+.add-memu-item-container-form-group-add-ingridient {
+  display: flex;
+  gap: 10px;
+}
+
+.add-memu-item-container-form-group-add-ingridient input {
+  flex: 1;
+  width: 100%;
+}
+
+.add-memu-item-container-form-group-add-ingridient button {
+  margin-top: 23px;
+  margin-left: 12px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.add-memu-item-container-form-group-add-ingridient button:hover {
+  letter-spacing: 1px;
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+.add-memu-item-container-form-group-add-ingridient button i {
+  font-size: 42px;
+  font-weight: 500;
+  background: transparent;
+  border: 5px black;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  white-space: nowrap;
+}
+
+/* Container for the list */
+.add-memu-item-container-form-group-ingredients-list {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  max-height: 260px;
+  overflow-y: auto; /* Changed to vertical scroll for better readability */
+  padding: 0;
+  margin: 0;
+  border-radius: 8px;
+  background-color: #ddebe4;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+/* Custom scrollbar styling */
+.add-memu-item-container-form-group-ingredients-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.add-memu-item-container-form-group-ingredients-list::-webkit-scrollbar-thumb {
+  background: #8fb398;
+  border-radius: 5px;
+}
+
+.add-memu-item-container-form-group-ingredients-list::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Styling for each list item */
+.add-memu-item-container-form-group-ingredient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #ffffff;
+  color: black;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for list items */
+.add-memu-item-container-form-group-ingredient-item:hover {
+  background: #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove button styling */
+.add-memu-item-container-form-group-ingredient-item-remove-btn {
+  display: flex;
+  color: black;
+  align-items: center;
+}
+
+.add-memu-item-container-form-group-ingredient-item-remove-btn button {
+  border: none;
+  font-size: 18px;
+  background: transparent;
+  color: black;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-left: 16px;
+}
+
+.add-memu-item-container-form-group-ingredient-item-remove-btn button:hover {
+  transform: scale(1.05);
+}
+
+.add-memu-item-container-form-group-ingredient-item-remove-btn button i {
+  color: black;
+}
+
+.add-memu-item-container-form-group-submit button {
+  margin-top: 10px;
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 8px 25px;
+  border: none;
+  align-self: flex-end;
+}
+
+.add-memu-item-container-form-group-ingredient-item-remove-btn {
+  margin-left: auto;
+}
+
+.add-memu-item-container-form-group-ingredient-item-can-remove-checkbox input {
+  margin-right: 3px;
+  margin-left: 10px;
+}
+
+.add-memu-item-container-form-group-ingredient-item-can-remove-checkbox span {
+  color: black;
+}
+
+.add-memu-item-container-form-group-submit button:hover {
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.03);
+}
