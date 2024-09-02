@@ -23,6 +23,17 @@ const itemSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  delete: {
+    type: Boolean,
+    default: false,
+  },
+  fire: {
+    type: Boolean,
+    default: false,
+  },
+  fireTimestamp: {
+    type: Date,
+  },
 });
 
 // Define the schema for a reservation

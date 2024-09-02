@@ -12,6 +12,14 @@ const Sidebar = ({ auth, logout }) => {
       <h2 class='sidebar-subject'>Restaurant-Name</h2>
 
       <ul class='sidebar-list'>
+        <li>
+          <a>
+            <i class='bx bx-home'></i>
+            <Link class='sidebar-link-name' to='/'>
+              Home
+            </Link>
+          </a>
+        </li>
         {auth.user.role === 'admin' && (
           <li>
             <a>
@@ -24,9 +32,17 @@ const Sidebar = ({ auth, logout }) => {
         )}
         <li>
           <a>
-            <i class='bx bx-table'></i>
+            <i class='bx bx-restaurant'></i>
             <Link class='sidebar-link-name' to='/tables'>
               Tables
+            </Link>
+          </a>
+        </li>
+        <li>
+          <a>
+            <i class='bx bx-edit'></i>
+            <Link class='sidebar-link-name' to='/reservations'>
+              Reservations
             </Link>
           </a>
         </li>

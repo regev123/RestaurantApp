@@ -5,14 +5,16 @@ import './globalStyles.css';
 import 'boxicons/css/boxicons.min.css';
 import SignIn from './pages/auth/SignIn';
 import SignUp from './pages/auth/SignUp';
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import AdminLandingPage from './pages/admin/AdminLandingPage';
 import AdminTables from './pages/admin/table/AdminTables';
 import AdminMenu from './pages/admin/menu/AdminMenu';
+import AdminLine from './pages/admin/line/AdminLine';
 import Tables from './pages/table/Tables';
 import TableReservation from './pages/table/TableReservation/TableReservation';
 import Alert from './components/layout/AlertHandle';
 import PrivateRoute from './components/routing/PrivateRoute';
+import Reservations from './pages/reservations/Reservations';
 //Redux
 
 import { Provider } from 'react-redux';
@@ -57,8 +59,18 @@ const App = () => {
           />
           <Route
             exact
+            path='/admin/line'
+            element={<PrivateRouteAdmin component={AdminLine} />}
+          />
+          <Route
+            exact
             path='/tables'
             element={<PrivateRoute component={Tables} />}
+          />
+          <Route
+            exact
+            path='/reservations'
+            element={<PrivateRoute component={Reservations} />}
           />
           <Route
             exact

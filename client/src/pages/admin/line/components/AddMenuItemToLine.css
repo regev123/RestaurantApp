@@ -1,0 +1,108 @@
+.add-menu-item-to-line-page-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.add-menu-item-to-line-page-box-content h5 {
+  color: black;
+  text-transform: capitalize;
+  font-size: 12px;
+  font-weight: 500px;
+  border-bottom: 1px dashed #222;
+  padding-bottom: 5px;
+}
+
+.add-menu-item-to-line-page-box-content h5 span {
+  color: tomato;
+  float: right;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.add-menu-item-to-line-page-box-content p {
+  font-size: 12px;
+}
+
+.add-menu-item-to-line-page-box img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 1px dashed #ddd;
+  padding: 3px;
+  margin-bottom: 10px;
+  margin-left: 7px;
+  margin-top: 10px;
+}
+
+.add-menu-item-to-line-page-box-container {
+  margin-top: 20px;
+  max-height: 580px;
+  width: 25vw;
+  background-color: #ddebe4;
+  overflow-y: auto; /* Changed to vertical scroll for better readability */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Custom scrollbar styling */
+.add-menu-item-to-line-page-box-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.add-menu-item-to-line-page-box-container::-webkit-scrollbar-thumb {
+  background: #8fb398;
+  border-radius: 5px;
+}
+
+.add-menu-item-to-line-page-box-container::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+.add-menu-item-to-line-page-container .add-menu-item-to-line-page-box {
+  width: 24.4vw;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  display: flex;
+  background: #ffffff;
+  align-items: center;
+}
+
+.add-menu-item-to-line-page-box-content {
+  margin-left: 20px;
+  width: 50%;
+}
+
+.add-menu-item-to-line-page-box-select button {
+  background: #3739c2;
+  color: rgb(255, 245, 106);
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 6px 14px;
+  margin-left: 20px;
+  border: none;
+}
+
+.add-menu-item-to-line-page-box-select button:hover {
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.gray-scale {
+  filter: grayscale(100%);
+}
+
+.add-menu-item-to-line-page-container-select-line {
+  margin-bottom: 5px;
+}
+
+.add-menu-item-to-line-page-container-title h2 {
+  color: black;
+  font-style: italic;
+  margin-bottom: 65px;
+  margin-left: 20px;
+}

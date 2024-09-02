@@ -45,17 +45,28 @@
   margin: 20px;
 }
 
+.table-reservations-page-reservation-item-content-menu-item-name-delete {
+  text-decoration: line-through;
+  color: red;
+}
+
 .table-reservations-page-reservation-item-content-menu-item {
   border-radius: 5px;
   padding: 5px;
-  margin-bottom: 10px;
+}
+.table-reservations-page-reservation-item-content-menu-item-name {
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
 }
 
 .table-reservations-page-reservation-item-content-menu-item-name h5 {
   color: black;
 }
 
-.table-reservations-page-reservation-item-content-menu-item-name h5 button {
+.table-reservations-page-reservation-item-content-menu-item-name
+  h5
+  .table-reservations-page-reservation-item-content-menu-item-name-hold {
   background: transparent;
   border: none;
   margin-left: 4px;
@@ -63,17 +74,83 @@
 
 .table-reservations-page-reservation-item-content-menu-item-name
   h5
-  button:hover {
+  .table-reservations-page-reservation-item-content-menu-item-name-fire {
+  background: transparent;
+  border: none;
+  margin-left: 4px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-name
+  h5
+  .table-reservations-page-reservation-item-content-menu-item-name-fire
+  i:hover {
+  cursor: not-allowed;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-name-fire {
+  display: inline-flex;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-name
+  h5
+  .table-reservations-page-reservation-item-content-menu-item-name-hold
+  i:hover {
   cursor: pointer;
   transform: scale(1.05);
   background: transparent;
 }
 
-.table-reservations-page-reservation-item-content-menu-item-name h5 button i {
+.table-reservations-page-reservation-item-content-menu-item-name
+  h5
+  .table-reservations-page-reservation-item-content-menu-item-name-fire
+  i {
+  font-size: 14px;
+  color: green;
+  display: flex;
+  justify-content: center;
+  margin-right: 5px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-name
+  h5
+  .table-reservations-page-reservation-item-content-menu-item-name-hold
+  i {
   font-size: 14px;
   color: red;
   display: flex;
   justify-content: center;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-delete-false {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-delete-false
+  i:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.table-reservations-page-reservation-item-content-menu-item-delete-false i {
+  color: black;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-delete-true {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-delete-true
+  i:hover {
+  cursor: not-allowed;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-delete-true i {
+  color: red;
+  font-weight: 900;
 }
 
 .table-reservations-page-reservation-item-content-date {
@@ -90,6 +167,36 @@
 
 .table-reservations-page-reservation-item-content-menu-item-name-close {
   text-decoration: line-through;
-  color: black;
+  color: green;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-open-true {
   background: transparent;
+  border: none;
+  font-size: 18px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-open-true i:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.table-reservations-page-reservation-item-content-menu-item-open-true i {
+  color: black;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-open-false {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-open-false i:hover {
+  cursor: not-allowed;
+}
+
+.table-reservations-page-reservation-item-content-menu-item-open-false i {
+  color: green;
+  font-weight: 900;
+  font-size: 24px;
 }

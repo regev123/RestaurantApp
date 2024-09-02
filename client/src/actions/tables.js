@@ -47,7 +47,7 @@ export const deleteTable =
 
       if (errors) {
         errors.forEach((error) => {
-          dispatch(setAlert(error.msg, 'error'));
+          dispatch(setAlert('failure', error.msg, 'error'));
         });
       }
     }

@@ -35,6 +35,23 @@ const AdminLandingPage = () => {
               </Link>
             </a>
           </div>
+
+          <div class='admin-landing-page-box'>
+            <img
+              className='admin-landing-page-box-line-img'
+              src='/images/line.png'
+              alt=''
+            ></img>
+            <h3>Line Edit</h3>
+            <p>
+              Add or delete the restaurants lines, add a menu item to each line.
+            </p>
+            <a class='admin-landing-page-box-btn'>
+              <Link class='text-white' to='/admin/line'>
+                Line
+              </Link>
+            </a>
+          </div>
         </div>
       </div>
     </div>

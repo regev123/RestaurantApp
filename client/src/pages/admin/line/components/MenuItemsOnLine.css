@@ -1,0 +1,76 @@
+.menu-item-on-line-page-container {
+  width: 27vw;
+}
+
+.menu-item-on-line-page-container h2 {
+  color: black;
+  font-style: italic;
+  margin-bottom: 55px;
+  margin-left: 20px;
+}
+
+.menu-item-on-line-page-item-list-by-line-title h6 {
+  background: #3739c2;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.menu-item-on-line-page-item-list-by-line-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 10px rgba(149, 191, 165, 0.3);
+  margin: 5px 10px 15px 20px;
+}
+
+.menu-item-on-line-page-container .menu-item-on-line-page-list {
+  margin-bottom: 20px;
+  overflow-y: auto; /* Changed to vertical scroll for better readability */
+  height: 730px;
+}
+
+/* Custom scrollbar styling */
+.new-reservation-page-menu-item-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.new-reservation-page-menu-item-list::-webkit-scrollbar-thumb {
+  background: #8fb398;
+  border-radius: 5px;
+}
+
+.new-reservation-page-menu-item-list::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+.menu-item-on-line-page-line-item-content {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.menu-item-on-line-page-line-item-content h6 {
+  color: black;
+  font-size: 12px;
+}
+
+.menu-item-on-line-page-line-item-content-btn {
+  background: transparent;
+  border: none;
+}
+
+.menu-item-on-line-page-line-item-content-btn i {
+  color: black;
+  font-size: 18px;
+}
+
+.menu-item-on-line-page-line-item-content-btn i:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background: transparent;
+}

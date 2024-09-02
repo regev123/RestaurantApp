@@ -4,6 +4,7 @@ const { check, validationResult } = require('express-validator');
 const auth = require('../../middleware/auth');
 const restrictTo = require('../../middleware/restrictTo');
 const Table = require('../../models/Table');
+const Reservation = require('../../models/Reservation');
 
 // @route    POST api/tables/addTable
 // @desc     Add new table
@@ -45,6 +46,17 @@ router.delete(
   restrictTo('admin'),
   async (req, res) => {
     try {
+      const reservations = await Reservation.find({ table: req.params.id });
+      if (reservations.length > 0) {
+        return res.status(400).send({
+          errors: [
+            {
+              msg: 'Cannot delete table, there is open reservation for this table!',
+            },
+          ],
+        });
+      }
+
       const deletedTable = await Table.findByIdAndDelete(req.params.id);
       if (deletedTable === null) {
         return res

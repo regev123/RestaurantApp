@@ -26,7 +26,7 @@ const calculateElapsedTime = (createdAt) => {
   )}:${String(seconds).padStart(2, '0')}`;
 };
 
-const Clock = ({ createdAt }) => {
+const Clock = ({ createdAt, starterString }) => {
   const [elapsedTime, setElapsedTime] = useState('');
 
   useEffect(() => {
@@ -46,7 +46,9 @@ const Clock = ({ createdAt }) => {
   }, [createdAt]);
 
   return (
-    <h6 className='clock-component-layout-text'>Time Passed : {elapsedTime}</h6>
+    <h6 className='clock-component-layout-text'>
+      {starterString} {elapsedTime}
+    </h6>
   );
 };
 
