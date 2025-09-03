@@ -1,0 +1,92 @@
+/* Container for all the table cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* Styling each table card */
+.table-card {
+  color: #fff; /* White text for contrast */
+  border-radius: 20px; /* More rounded corners for a smoother look */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow for a modern feel */
+  padding: 30px;
+  text-align: center;
+  width: 250px;
+  transition: all 0.3s ease-out; /* Smooth transitions for transform and shadow */
+  cursor: pointer;
+  overflow: hidden; /* Ensure the content doesn't spill */
+  position: relative; /* For hover effects */
+}
+
+/* Hover effect for the card */
+.table-card:hover {
+  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+/* Active state for the card */
+.table-card:active {
+  transform: translateY(2px); /* Slight push effect on click */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Slight shadow on click */
+}
+
+/* Styling for the Table Number */
+.table-card h2 {
+  font-size: 1.7rem; /* Slightly larger table number */
+  font-weight: bold;
+  color: #ecf0f1; /* Soft white text for the table number */
+  margin-bottom: 12px;
+  letter-spacing: 1px; /* Slight letter spacing for modernity */
+  text-transform: uppercase; /* Capitalized for a clean look */
+}
+
+/* Styling for the Seat Information */
+.table-card p {
+  font-size: 1.2rem;
+  color: #bdc3c7; /* Soft light-gray for the seat info */
+  margin-bottom: 20px;
+  font-weight: 500; /* Semi-bold for emphasis */
+}
+
+/* Button Styling */
+.table-card button {
+  background-color: #2b363d; /* Soft blue for the button */
+  color: #fff; /* White text */
+  border: none;
+  padding: 10px 24px;
+  border-radius: 30px; /* Rounded button corners */
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+/* Button hover effect */
+.table-card button:hover {
+  background-color: #1f6397; /* Slightly darker blue on hover */
+}
+
+/* Button active state */
+.table-card button:active {
+  transform: scale(0.98); /* Slight shrink on click */
+}
+
+/* Styling for not available tables */
+.table-card.not-available {
+  background: linear-gradient(
+    145deg,
+    #813333,
+    #ec3636
+  ); /* Soft black-blue gradient */
+}
+
+.table-card.available {
+  background: linear-gradient(
+    145deg,
+    #1e5812,
+    #63a856
+  ); /* Soft black-blue gradient */
+}

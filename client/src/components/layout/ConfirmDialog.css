@@ -1,0 +1,97 @@
+/* Overlay */
+.confirm-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Dialog box */
+.confirm-dialog {
+  background-color: #1e1e2f; /* Darker background for modern design */
+  border-radius: 12px; /* Smooth corners */
+  padding: 24px;
+  width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Deeper shadow for depth */
+  text-align: center;
+  color: #ffffff; /* White text for contrast */
+  font-family: 'Roboto', sans-serif; /* Modern font */
+}
+
+/* Title */
+.confirm-dialog-title {
+  margin: 0 0 16px;
+  font-size: 22px;
+  font-weight: 600; /* Semi-bold for emphasis */
+  color: #ffffff; /* Keep title prominent */
+}
+
+/* Message */
+.confirm-dialog-message {
+  margin: 0 0 24px;
+  font-size: 16px;
+  color: #cfcfcf; /* Slightly lighter text for less emphasis */
+  line-height: 1.5; /* Improves readability */
+}
+
+/* Actions */
+.confirm-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px; /* Adds space between buttons */
+}
+
+.confirm-dialog-button {
+  flex: 1; /* Ensures buttons are of equal width */
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Confirm button */
+.confirm-dialog-button.confirm {
+  background-color: #4caf50; /* Modern green for confirmation */
+  color: #ffffff;
+}
+
+.confirm-dialog-button.confirm:hover {
+  background-color: #45a049; /* Darker green on hover */
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3); /* Adds a glow effect */
+}
+
+/* Cancel button */
+.confirm-dialog-button.cancel {
+  background-color: #f44336; /* Modern red for cancellation */
+  color: #ffffff;
+}
+
+.confirm-dialog-button.cancel:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+  box-shadow: 0 4px 10px rgba(244, 67, 54, 0.3); /* Adds a glow effect */
+}
+
+/* Add slight animation */
+.confirm-dialog {
+  animation: scaleUp 0.05s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,51 @@
+.inputFieldAuth {
+  position: relative;
+  height: 50px;
+  margin: 20px 0;
+}
+
+.inputFieldAuth input {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f9f9f9;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  outline: none;
+  font-size: 18px;
+  padding: 0 50px 0 20px;
+  transition: all 0.3s ease;
+}
+
+.inputFieldAuth input:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.inputFieldAuth input:focus {
+  border-color: #00bcd4;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.inputFieldAuth i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.inputFieldAuth i:hover {
+  color: #00bcd4;
+}
+
+.inputFieldAuth input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+.inputFieldAuth.full-width {
+  width: 100%;
+}

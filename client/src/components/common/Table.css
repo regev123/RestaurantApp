@@ -1,0 +1,89 @@
+/* Table Manager Container */
+.table-manager {
+  width: 90%;
+  margin: 50px auto;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.table-container {
+  max-height: 67vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Modern Scrollbar Styles (Webkit) */
+.table-container::-webkit-scrollbar {
+  width: 10px !important; /* Set the width of the scrollbar */
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #eee7e7 !important; /* Track color */
+  border-radius: 10px !important; /* Rounded corners for the track */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #4d495e !important; /* Thumb color */
+  border-radius: 10px !important; /* Rounded corners for the thumb */
+  border: 2px solid #f4f4f4 !important; /* Border around the thumb for a clean look */
+}
+
+/* Table Styles */
+.table-list {
+  width: 100%;
+  border-collapse: separate; /* Separate borders to avoid collapsing */
+  border-spacing: 0; /* Ensures borders stay distinct */
+  table-layout: fixed; /* Optional: Ensures that column widths are fixed and consistent */
+}
+
+/* Table Header and Cells */
+.table-list th,
+.table-list td {
+  padding: 1rem 2rem;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.table-list td {
+  padding: 1rem 2rem;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+/* Sticky Header */
+.table-list thead {
+  box-shadow: 0 10px 15px #e1e5ee;
+  position: sticky;
+  top: 0;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.1rem;
+}
+
+/* Ensure nth-child targets only table rows within tbody */
+.table-list tr:nth-child(even) {
+  background-color: #f4f6fb; /* Light green background for even rows */
+}
+
+.table-list td {
+  background-color: inherit; /* Let the row background apply */
+}
+
+/* Edit Input Styles */
+.edit-input {
+  width: 60px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* No Tables Message */
+.no-tables {
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+  padding: 20px 0;
+}

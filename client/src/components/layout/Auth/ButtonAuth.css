@@ -1,0 +1,47 @@
+.buttonAuth {
+  height: 50px;
+  background: linear-gradient(135deg, #00bcd4, #2196f3); /* Modern gradient */
+  border: none;
+  outline: none;
+  border-radius: 8px; /* Subtle rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.2); /* Add inner glow */
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px; /* Modern spacing */
+  transition: all 0.3s ease, transform 0.2s ease; /* Smooth transitions and subtle animation */
+}
+
+.buttonAuth:hover {
+  background: linear-gradient(
+    135deg,
+    #2196f3,
+    #00bcd4
+  ); /* Slightly lighter gradient on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15),
+    inset 0 -1px 3px rgba(255, 255, 255, 0.1); /* Enhance hover effect */
+  transform: translateY(-0.5px); /* Subtle lift effect */
+}
+
+.buttonAuth:active {
+  transform: translateY(0); /* Reset lift effect */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1); /* Adjust shadow for pressed state */
+}
+
+.buttonAuth:disabled {
+  background: linear-gradient(
+    135deg,
+    #bdbdbd,
+    #e0e0e0
+  ); /* Soft gradient for disabled state */
+  color: #9e9e9e;
+  cursor: not-allowed;
+  box-shadow: none; /* Minimal styling for disabled buttons */
+}
+
+.buttonAuth.full-width {
+  width: 100%;
+}

@@ -1,0 +1,36 @@
+.button {
+  height: 40px; /* Reduced height */
+  padding: 0 15px; /* Adjusted horizontal padding for proportional spacing */
+  background: #205580;
+  border-radius: 8px; /* Slightly less rounded */
+  color: #ffffff;
+  font-size: 16px; /* Smaller font size */
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /* Slightly reduced shadow size */
+  transform: translateY(-1px); /* Subtle upward movement */
+}
+
+.button:active {
+  background: #101010;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+  transform: translateY(0);
+}
+
+.button:disabled {
+  background: #999999;
+  color: #000000;
+
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button.full-width {
+  width: 100%;
+}

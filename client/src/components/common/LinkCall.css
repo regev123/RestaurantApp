@@ -1,0 +1,30 @@
+.link {
+  text-align: center;
+  padding: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.link:hover {
+  transform: translateY(-1px);
+}
+
+.link-text {
+  font-size: 16px;
+  color: #ecf0f1;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.link-name {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link-name:hover {
+  color: #2196f3;
+  transform: translateY(-1px);
+}

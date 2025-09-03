@@ -1,0 +1,85 @@
+/* Main container styling */
+.delete-edit-menu-item-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space out content neatly */
+  width: 100%;
+  padding: 20px; /* Generous padding for a clean, spacious look */
+  border: none; /* Removed hard border */
+  border-radius: 15px; /* More rounded corners for a sleek look */
+  background: linear-gradient(
+    145deg,
+    #f3f4f6,
+    #e5e7eb
+  ); /* Subtle gradient for depth */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Larger shadow for a premium feel */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  margin-bottom: 25px; /* Space between cards */
+}
+
+.delete-edit-menu-item-box:hover {
+  transform: translateY(-5px); /* Lift card on hover */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Image styling */
+.delete-edit-menu-item-box img {
+  height: 90px;
+  width: 90px;
+  border-radius: 15px; /* Subtle rounded corners for modernity */
+  object-fit: cover;
+  border: 3px solid rgba(0, 0, 0, 0.1); /* Thin, semi-transparent border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.delete-edit-menu-item-box img:hover {
+  transform: scale(1.1); /* Zoom in slightly */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Content container */
+.delete-edit-menu-item-box-content {
+  margin-left: 20px;
+  flex: 1; /* Flex to fill remaining space */
+  display: flex;
+  flex-direction: column; /* Stack name and ingredients vertically */
+  justify-content: center;
+}
+
+/* Item name and price styling */
+.delete-edit-menu-item-box-content h5 {
+  color: #1f2937; /* Darker modern neutral text color */
+  text-transform: capitalize;
+  font-size: 18px; /* Larger font size for a modern feel */
+  font-weight: 600; /* Semi-bold for readability */
+  margin: 0 0 8px 0; /* Add spacing below */
+  display: flex; /* Align name and price */
+  align-items: center; /* Vertically align */
+}
+
+.delete-edit-menu-item-box-content h5 span {
+  color: #ff6b6b; /* Vibrant red for modern price highlight */
+  font-weight: 700; /* Strong emphasis on price */
+  margin-left: 15px;
+  font-style: normal;
+}
+
+/* Ingredients text */
+.delete-edit-menu-item-box-content p {
+  font-size: 14px; /* Clean, modern font size */
+  color: #6b7280; /* Subtle gray for secondary text */
+  margin: 0; /* Remove unnecessary margin */
+  line-height: 1.5; /* Enhance readability */
+}
+
+/* Grayscale for unavailable items */
+.gray-scale {
+  filter: grayscale(100%);
+  opacity: 0.8; /* Slightly dim */
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.gray-scale:hover {
+  opacity: 1; /* Restore on hover */
+  filter: grayscale(0); /* Remove grayscale effect */
+}
